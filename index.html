@@ -46,8 +46,9 @@
     MainButton.enable()
 
     onEvent('mainButtonClicked', () => {
-        alert('Clicked')
-        sendData({ cart: getCartItems() })
+        const cart = getCartItems()
+        alert('Clicked ' + cart.length)
+        sendData({ cart })
     })
 </script>
 </body>
