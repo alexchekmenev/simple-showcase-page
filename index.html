@@ -48,7 +48,7 @@
     onEvent('mainButtonClicked', () => {
         const cart = getCartItems()
         alert('Clicked ' + cart.length)
-        sendData({ cart })
+        sendData(JSON.stringify({ cart }))
     })
 </script>
 </body>
