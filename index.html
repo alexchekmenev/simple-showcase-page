@@ -20,16 +20,20 @@
         {id: 2, name: 'Burger', price: 19},
         {id: 3, name: 'Pizza', price: 20}
     ]
+
     const cart = new Set()
-    const cartItems = []
     function addToCart(id) {
         cart.add(id)
     }
+
     function getCartItems() {
+        const cartItems = []
         for (const id of cart.keys()) {
             cartItems.push(items.find((item) => item.id === id))
         }
+        return cartItems
     }
+
     const container = document.getElementById("container");
     container.innerHTML = items.map((item) => {
         return '<button onclick="addToCart(' + item.id + ')">Add ' + item.name + ' to cart</button>'
@@ -43,7 +47,7 @@
 
     onEvent('mainButtonClicked', () => {
         alert('Clicked')
-        sendData({ cart: cartItems })
+        sendData({ cart: getCartItems() })
     })
 </script>
 </body>
